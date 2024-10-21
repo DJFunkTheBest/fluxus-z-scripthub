@@ -1,0 +1,387 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Fluxus Z", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+local Tab = Window:MakeTab({
+	Name = "Version & UpdateLog",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddParagraph("Fluxus Z","Version 1.0")
+Tab:AddParagraph("Update Log","Just Released")
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddParagraph("Credits to","Jake & Celeste = Owner")
+Tab:AddParagraph("Scripter","VixelFunk")
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "Discord",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddParagraph("Invite Link","discord.gg/fluxusz")
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "Misc Scripts",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "High Speed",
+	Callback = function()
+		local player = game.Players.LocalPlayer
+		if player.Character and player.Character:FindFirstChild("Humanoid") then
+			player.Character.Humanoid.WalkSpeed = 250
+		end
+	end    
+})
+Tab:AddButton({
+	Name = "Super Jump",
+	Callback = function()
+		local player = game.Players.LocalPlayer
+		if player.Character and player.Character:FindFirstChild("Humanoid") then
+			player.Character.Humanoid.JumpPower = 250
+			player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+			print("Super jump activated!")
+		end
+	end    
+})
+Tab:AddButton({
+	Name = "Stretched Resolution",
+	Callback = function()
+		print("Stretched Resolution activated")
+
+		getgenv().Resolution = {
+			[" "] = 0.65
+		}
+
+		local Camera = workspace.CurrentCamera
+		if getgenv().gg_scripters == nil then
+			game:GetService("RunService").RenderStepped:Connect(
+				function()
+					Camera.CFrame = Camera.CFrame * CFrame.new(0, 0, 0, 1, 0, 0, 0, getgenv().Resolution[" "], 0, 0, 0, 1)
+				end
+			)
+		end
+		getgenv().gg_scripters = " "
+	end    
+})
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+	end    
+})
+Tab:AddButton({
+	Name = "Universal ESP",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/DJFunkTheBest/fluxus-z-esp-script/refs/heads/main/ESP%20script", true))()
+	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "Blox Fruits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Redz Hub",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+	end    
+})
+Tab:AddButton({
+	Name = "Mango Hub",
+	Callback = function()
+		getgenv().WaterMark = true
+		loadstring(game:HttpGet("https://gitlab.com/L1ZOT/mango-hub/-/raw/main/Mango-Bloxf-Fruits-Beta"))()
+	end    
+})
+Tab:AddButton({
+	Name = "Domanic Hub",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript"))()
+	end    
+})
+
+Tab:AddButton({
+	Name = "W-azure",
+	Callback = function()
+		getgenv().Team = "Pirates"
+		getgenv().FixCrash = false
+		getgenv().FixCrash2 = false
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+	end    
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "KAT (only for pc)",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Kat script idk the name",
+	Callback = function()
+		print("button pressed")
+		loadstring(game:HttpGet('https://pastebin.com/raw/TDBuxW7W'))()
+	end    
+})
+Tab:AddButton({
+	Name = "Cool kat script",
+	Callback = function()
+		print("button pressed")
+		loadstring(game:HttpGet("https://pastebin.com/raw/6rd91GZx", true))()
+	end    
+})
+Tab:AddButton({
+	Name = "KatWare",
+	Callback = function()
+		print("button pressed")
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/cOpEtriNe/Katware-/main/Script'))()
+	end    
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "Prison Life",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Tiger Admin",
+	Callback = function()
+		print("button pressed")
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/dalloc2/Roblox/main/TigerAdmin.lua"))()
+	end    
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "Murder Mystery 2",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddParagraph("Please Read","Coming soon in the next update")
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "The Strongest Battlegrounds",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddParagraph("Please Read","Coming soon in the next update")
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "Da Hood",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Vascalllock",
+	Callback = function()
+		print("button pressed")
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Gwaporoblox/VascalLock/main/README.md"))()
+	end    
+})
+Tab:AddButton({
+	Name = "Aura x mobile",
+	Callback = function()
+		print("button pressed")
+
+		getgenv().Silent = {
+			Settings = {
+				Enabled = true,
+				AimPart = "UpperTorso",
+				Prediction = 0.159748979134,
+				WallCheck = true,
+				Visualize = true,
+				AutoPrediction = true,
+			},
+			FOV = {
+				Enabled = true,
+				Size = 30,
+				Filled = false,
+				Thickness = 0.66,
+				Transparency = 0.9,
+				Color = Color3.fromRGB(255, 255, 255),
+			},
+		}
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CyberPlaysYT/Aura-x/main/Source", true))()
+	end    
+})
+Tab:AddButton({
+	Name = "Silent Aim",
+	Callback = function()
+		print("button pressed")
+
+		getgenv().Silent = {
+			Setting = {
+				IsTargetting = true,
+				Prediction = 0.119,
+				TargetPart = "HumanoidRootPart",
+				WallCheck = true,
+				FOV = {
+					Radius = 70,
+					Visible = true
+				}
+			}
+		}
+
+		local Inset, Mouse, Client, Vector2New, Cam =
+			game:GetService("GuiService"):GetGuiInset().Y,
+			game.Players.LocalPlayer:GetMouse(),
+			game.Players.LocalPlayer,
+			Vector2.new,
+			workspace.CurrentCamera
+		local Targetting
+
+		local FOV = Drawing.new("Circle")
+		FOV.Transparency = 0.5
+		FOV.Thickness = 1.6
+		FOV.Color = Color3.fromRGB(230, 230, 250)
+		FOV.Filled = true
+
+		local UpdateFOV = function(Radius)
+			if (not FOV) then
+				return
+			end
+
+			FOV.Position = Vector2New(Mouse.X, Mouse.Y + (Inset))
+			FOV.Visible = getgenv().Silent.Setting.FOV["Visible"]
+			FOV.Radius = (Radius) * 3.067
+
+			return FOV
+		end
+
+		task.spawn(function() 
+			while task.wait() do 
+				UpdateFOV(getgenv().Silent.Setting.FOV["Radius"]) 
+			end 
+		end)
+
+		local WallCheck = function(destination, ignore)
+			if getgenv().Silent.Setting.WallCheck then
+				local Origin = Cam.CFrame.p
+				local CheckRay = Ray.new(Origin, destination - Origin)
+				local Hit = game.workspace:FindPartOnRayWithIgnoreList(CheckRay, ignore)
+				return Hit == nil
+			else
+				return true
+			end
+		end
+
+		local getClosestChar = function()
+			local Target, Closest = nil, 1 / 0
+			for _, v in pairs(game.Players:GetPlayers()) do
+				if (v.Character and v ~= Client and v.Character:FindFirstChild("HumanoidRootPart")) then
+					local Position, OnScreen = Cam:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
+					local Distance = (Vector2New(Position.X, Position.Y) - Vector2New(Mouse.X, Mouse.Y)).Magnitude
+
+					if (FOV.Radius > Distance and Distance < Closest and OnScreen and
+						WallCheck(v.Character.HumanoidRootPart.Position, {Client, v.Character})) then
+						Closest = Distance
+						Target = v
+					end
+				end
+			end
+			return Target
+		end
+
+		local Old
+		Old = hookmetamethod(game, "__index", function(self, key)
+			if self:IsA("Mouse") and key == "Hit" then
+				Targetting = getClosestChar()
+				if Targetting ~= nil then
+					return Targetting.Character[getgenv().Silent.Setting.TargetPart].CFrame +
+						(Targetting.Character[getgenv().Silent.Setting.TargetPart].Velocity *
+						getgenv().Silent.Setting.Prediction)
+				end
+			end
+			return Old(self, key)
+		end)
+	end    
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Tab = Window:MakeTab({
+	Name = "Pet Simulator 99",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddParagraph("Please Read","Coming soon in the next update")
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
